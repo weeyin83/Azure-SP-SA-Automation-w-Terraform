@@ -8,8 +8,9 @@ locals {
 }
 
 ##
-# Local
+# Resources
 ##
+
 
 ## Create Azure Entra Service Principal ##
 
@@ -70,7 +71,7 @@ resource "azurerm_storage_container" "ct" {
 
 }
 
-## Store the Serivce Principal ID, Password, plus information about the storage account and Azure subscription in GitHub Secrets ##
+## Store the Service Principal ID, Password, plus information about the storage account and Azure subscription in GitHub Secrets ##
 
 resource "github_actions_secret" "actions_secret" {
   for_each = {
