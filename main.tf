@@ -51,6 +51,10 @@ resource "random_integer" "sa_num" {
 resource "azurerm_resource_group" "setup" {
   name     = local.resource_group_name
   location = var.location
+    tags = {
+    usage = var.tag_usage
+    owner = var.tag_owner
+  }
 }
 
 resource "azurerm_storage_account" "sa" {
