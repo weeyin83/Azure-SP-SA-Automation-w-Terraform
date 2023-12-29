@@ -34,7 +34,7 @@ provider "azurerm" {
 }
 
 provider "random" {
-  # Configuration options
+  # Configuration options available
 }
 
 provider "azuread" {
