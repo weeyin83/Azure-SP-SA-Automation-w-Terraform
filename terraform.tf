@@ -2,6 +2,8 @@
 # Terraform Configuration
 ##
 terraform {
+
+  required_version = ">=1.6.0"
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
@@ -15,14 +17,30 @@ terraform {
       source  = "integrations/github"
       version = "~> 5.0"
     }
+    random = {
+      source  = "hashicorp/random"
+      version = "~> 3.6.0"
+    }
   }
 }
 
 
 ##
-# Providers
+# Provider configuration
 ##
 
 provider "azurerm" {
   features {}
+}
+
+provider "random" {
+  # Configuration options
+}
+
+provider "azuread" {
+  # Configuration options
+}
+
+provider "github" {
+  # Configuration options
 }

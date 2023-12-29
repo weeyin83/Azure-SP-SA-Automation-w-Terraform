@@ -20,12 +20,12 @@ data "azuread_client_config" "current" {}
 
 resource "azuread_application" "gh_actions" {
   display_name = local.service_principal_name
-  owners = [ data.azuread_client_config.current.object_id ]
+  owners       = [data.azuread_client_config.current.object_id]
 }
 
 resource "azuread_service_principal" "gh_actions" {
   client_id = azuread_application.gh_actions.client_id
-  owners = [ data.azuread_client_config.current.object_id ]
+  owners    = [data.azuread_client_config.current.object_id]
 }
 
 resource "azuread_service_principal_password" "gh_actions" {
@@ -51,7 +51,7 @@ resource "random_integer" "sa_num" {
 resource "azurerm_resource_group" "setup" {
   name     = local.resource_group_name
   location = var.location
-    tags = {
+  tags = {
     usage = var.tag_usage
     owner = var.tag_owner
   }
